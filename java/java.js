@@ -7,17 +7,19 @@ $(document).ready(function () {
 
 $(".current_date").text(currentDateAndTime);
 
-
-if (currentHour > 9) {
-    $("#9").addClass("bg-secondary")
-}
-
-else if (currentHour < 9) {
-    $("#9").addClass("bg-success")
-}
-
-else if (currentHour = 9) {
-    $("#9").addClass("bg-danger")
+function colorTime(x) {
+    if (currentHour > x) {
+        $("#"+x).addClass("bg-secondary");
+        $("#"+x).removeClass("bg-success bg-danger");
+    }
+    else if (currentHour < x) {
+        $("#"+x).addClass("bg-success");
+        $("#"+x).removeClass("bg-secondary bg-danger");
+    }
+    else if (currentHour = x) {
+        $("#"+x).addClass("bg-danger");
+        $("#"+x).removeClass("bg-secondary bg-danger");
+    };
 };
 
 
@@ -60,8 +62,13 @@ function clearLocalStorage() {
     return localStorage = null;
 };
 
-console.log(new Date().getHours())
 
-
-
-
+colorTime(9)
+colorTime(10)
+colorTime(11)
+colorTime(12)
+colorTime(13)
+colorTime(14)
+colorTime(15)
+colorTime(16)
+colorTime(17)
