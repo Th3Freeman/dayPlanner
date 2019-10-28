@@ -2,6 +2,10 @@ var currentDateAndTime = Date(Date.now());
 
 $(".current_date").text(currentDateAndTime);
 
+$(document).ready(function() {
+    loadPlans();
+});
+
 function savePlans() {
     localStorage.am9=$("#9am").val();
     localStorage.am10=$("#10am").val();
@@ -27,6 +31,18 @@ function loadPlans() {
     $("#5pm").val(localStorage.pm5);
 };
 
+function clearLocalStorage(){
+    $("#9am").val("");
+    $("#10am").val("");
+    $("#11am").val("");
+    $("#12pm").val("");
+    $("#1pm").val("");
+    $("#2pm").val("");
+    $("#3pm").val("");
+    $("#4pm").val("");
+    $("#5pm").val("");
+    savePlans();
+    return localStorage= null;
+};
 
-loadPlans();
 
