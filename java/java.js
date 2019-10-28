@@ -1,48 +1,67 @@
 var currentDateAndTime = Date(Date.now());
+var currentHour = new Date().getHours();
 
-$(".current_date").text(currentDateAndTime);
-
-$(document).ready(function() {
+$(document).ready(function () {
     loadPlans();
 });
 
+$(".current_date").text(currentDateAndTime);
+
+
+if (currentHour > 9) {
+    $("#9").addClass("bg-secondary")
+}
+
+else if (currentHour < 9) {
+    $("#9").addClass("bg-success")
+}
+
+else if (currentHour = 9) {
+    $("#9").addClass("bg-danger")
+};
+
+
 function savePlans() {
-    localStorage.am9=$("#9am").val();
-    localStorage.am10=$("#10am").val();
-    localStorage.am11=$("#11am").val();
-    localStorage.pm12=$("#12pm").val();
-    localStorage.pm1=$("#1pm").val();
-    localStorage.pm2=$("#2pm").val();
-    localStorage.pm3=$("#3pm").val();
-    localStorage.pm4=$("#4pm").val();
-    localStorage.pm5=$("#5pm").val();
-    
+    localStorage.am9 = $("#9").val();
+    localStorage.am10 = $("#10").val();
+    localStorage.am11 = $("#11").val();
+    localStorage.pm12 = $("#12").val();
+    localStorage.pm1 = $("#13").val();
+    localStorage.pm2 = $("#14").val();
+    localStorage.pm3 = $("#15").val();
+    localStorage.pm4 = $("#16").val();
+    localStorage.pm5 = $("#17").val();
+
 };
 
 function loadPlans() {
-    $("#9am").val(localStorage.am9);
-    $("#10am").val(localStorage.am10);
-    $("#11am").val(localStorage.am11);
-    $("#12pm").val(localStorage.pm12);
-    $("#1pm").val(localStorage.pm1);
-    $("#2pm").val(localStorage.pm2);
-    $("#3pm").val(localStorage.pm3);
-    $("#4pm").val(localStorage.pm4);
-    $("#5pm").val(localStorage.pm5);
+    $("#9").val(localStorage.am9);
+    $("#10").val(localStorage.am10);
+    $("#11").val(localStorage.am11);
+    $("#12").val(localStorage.pm12);
+    $("#13").val(localStorage.pm1);
+    $("#14").val(localStorage.pm2);
+    $("#15").val(localStorage.pm3);
+    $("#16").val(localStorage.pm4);
+    $("#17").val(localStorage.pm5);
 };
 
-function clearLocalStorage(){
-    $("#9am").val("");
-    $("#10am").val("");
-    $("#11am").val("");
-    $("#12pm").val("");
-    $("#1pm").val("");
-    $("#2pm").val("");
-    $("#3pm").val("");
-    $("#4pm").val("");
-    $("#5pm").val("");
+function clearLocalStorage() {
+    $("#9").val("");
+    $("#10").val("");
+    $("#11").val("");
+    $("#12").val("");
+    $("#13").val("");
+    $("#14").val("");
+    $("#15").val("");
+    $("#16").val("");
+    $("#17").val("");
     savePlans();
-    return localStorage= null;
+    return localStorage = null;
 };
+
+console.log(new Date().getHours())
+
+
 
 
