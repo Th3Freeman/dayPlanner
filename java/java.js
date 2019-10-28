@@ -18,7 +18,7 @@ function colorTime(x) {
     }
     else if (currentHour = x) {
         $("#"+x).addClass("bg-danger");
-        $("#"+x).removeClass("bg-secondary bg-danger");
+        $("#"+x).removeClass("bg-secondary bg-success");
     };
 };
 
